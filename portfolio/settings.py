@@ -31,7 +31,8 @@ DEBUG = os.getenv("DEBUG", True)
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
-    ".vercel.app"
+    ".vercel.app",
+    "portfolio-django-static.onrender.com"
 ]
 
 
