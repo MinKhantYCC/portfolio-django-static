@@ -1,0 +1,551 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Khant</title>
+    <link rel="stylesheet" href="{% static 'staticportfolio/index.css' %}">
+    <link rel="shortcut icon" href="https://i.postimg.cc/9fqYVvxh/logo.png" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <aside class="sidebar " data-sidebar>
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="https://i.postimg.cc/1zJzTWbg/myavatarhead.png" alt="avatar" width="80">
+                </figure>
+
+                <div class="info-content">
+                    <h1 class="name" title="Richard Hanrick">Min Khant</h1>
+                    <p class="title">AI Engineer</p>
+                </div>
+
+                <button class="info-more-btn" data-sidebar-btn>
+                    <span>Show Contacts</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
+
+            <div class="sidebar-info-more">
+                <div class="separator"></div>
+
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
+
+                            <a href="mailto:linyaungzin99@gmail.com" class="contact-link">linyaungzin99@gmail.com</a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="phone-portrait-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Phone</p>
+
+                            <a href="tel:+66944496172" class="contact-link">+66944496172</a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Birthday</p>
+                            <time datetime="1999-06-25">June 25, 1999</time>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Location</p>
+
+                            <address>Bangkok, Thailand</address>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="separator"></div>
+
+                <ul class="social-list">
+                    <li class="social-item">
+                      <a href="https://github.com/MinKhantYCC" class="social-link"><ion-icon name="logo-github"></ion-icon></a></li>
+                    <li class="social-item"><a href="https://www.linkedin.com/in/min-khant-386199201/" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                    <li class="social-item"><a href="https://medium.com/@linyaungzin99" class="social-link"><ion-icon name="logo-medium"></ion-icon></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Experience</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Projects</button></li>
+                </ul>
+            </nav>
+
+            <article class="about active" data-page="about">
+                <header>
+                    <h2 class="h2 article-title">About me</h2>
+                </header>
+
+                <section class="about-text">
+                    <p>I am an AI Engineer specializing in the design and deployment of production-ready, LLM-powered systems. My work focuses on building Retrieval-Augmented Generation (RAG) chatbots, scalable backend services, and automated workflows using Python, FastAPI, PostgreSQL, Docker, and modern cloud platforms such as AWS and Azure. I take a full-stack approach to AI engineering, integrating large language models with robust backend architectures to ensure reliability, performance, and maintainability in real-world environments. I have delivered AI solutions that enhance customer interaction, enable real-time access to information, and significantly reduce manual operational workload. From API design and cloud-native deployment to data flow optimization and system scalability, I focus on building systems that operate consistently in production. Beyond implementation, I work closely with stakeholders to translate business requirements into practical, measurable solutions. My technical interests include large language models, retrieval systems, agentic AI, and scalable system design, with a continuous focus on applying emerging techniques to real-world problems.</p>
+                </section>
+
+                <section class="service">
+                    <h3 class="h3 service-title">What I'm doing</h3>
+                    <ul class="service-list">
+                        
+                            <li class="service-item">
+                                <div class="service-icon-box">
+                                    <img src="https://i.postimg.cc/QM4qnwwP/icon-dev.png" alt="icon" width="40">
+                                </div>
+
+                                <div class="service-content-box">
+                                    <h4 class="h4 service-item-title">Backend development</h4>
+                                    <p class="service-item-text">Develop robust backend architectures to ensure reliability, performance, and maintainability in real-world environments.</p>
+                                </div>
+                            </li>
+                        
+                            <li class="service-item">
+                                <div class="service-icon-box">
+                                    <img src="https://i.postimg.cc/9Q3Xyfft/ai.png" alt="icon" width="40">
+                                </div>
+
+                                <div class="service-content-box">
+                                    <h4 class="h4 service-item-title">AI Engineer</h4>
+                                    <p class="service-item-text">Design and develop production-ready, AI-powered systems using machine learning models or LLMs.</p>
+                                </div>
+                            </li>
+                        
+                            <li class="service-item">
+                                <div class="service-icon-box">
+                                    <img src="https://i.postimg.cc/vmJvsf8P/chatbot.png" alt="icon" width="40">
+                                </div>
+
+                                <div class="service-content-box">
+                                    <h4 class="h4 service-item-title">Chatbot Development</h4>
+                                    <p class="service-item-text">Build LLM-powered chatbot such as RAG to enhance customer interaction, enable real-time information access, and significantly reduce manual operational workload.</p>
+                                </div>
+                            </li>
+                        
+                    </ul>
+                </section>
+
+                    <div class="modal-container " data-modal-container>
+                        <div class="overlay " data-overlay></div>
+
+                        <section class="testimonials-modal">
+                            <button class="modal-close-btn" data-modal-close-btn><ion-icon name="close-outline"></ion-icon></button>
+
+                            <div class="modal-img-wrapper">
+                                <figure class="modal-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="Daniel Lewis" width="80" data-modal-img>
+                                </figure>
+
+                                <img src="https://i.postimg.cc/mZ00RwX7/icon-quote.png" alt="quote icon">
+                            </div>
+
+                            <div class="modal-content">
+                                <h4 class="h3 modal-title" data-modal-title>Daniel Lewis</h4>
+                                <time datetime="2023-06-14">14 June, 2023</time>
+
+                                <div class="modal-text" data-modal-text>
+                                    <p>Richard was hired to create a corporate identity. It's modern, clean and with a beautiful design that got a lot of praises from colleagues and visitors. We were very pleased with the work done. He has a lot of experience and is very concerned about the needs of client.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                
+
+                
+                    <section class="clients">
+                        <h3 class="h3 clients-title">Clients</h3>
+
+                        <ul class="clients-list has-scrollbar">
+                            
+                                <li class="clients-item">
+                                    <a href="https://the-canopus.com/"><img src="https://the-canopus.com/wp-content/uploads/2022/09/campus-logo-1.png" alt="logo"></a>
+                                </li>
+                            
+                        </ul>
+                    </section>
+                
+
+            </article>
+            
+            <article class="experience " data-page="experience">
+                <header>
+                    <h2 class="h2 article-title">Experiences and Skills</h2>
+                </header>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Education</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+                        
+                            <li class="timeline-item">
+                                <h4 class="h4 timeline-item-title">University of Technology (Yatanarpon Cyber City) (Bachelor of Engineering (Electronics))</h4>
+                                <span>Dec. 1, 2015 - Present</span>
+                                <p class="timeline-text">There, I learnt a wide range of topics that are essential to understanding both the theory and practical aspects of electronics. This involves programming fundamentals, computer architecture, electronic power systems, microcontrollers, embedded engineering, network communication, problem-solving, collaboration, and communication soft skills.</p>
+                            </li>
+                        
+                            <li class="timeline-item">
+                                <h4 class="h4 timeline-item-title">University of The People (Bachelor&#x27;s in Computer Science)</h4>
+                                <span>Sept. 1, 2024 - Present</span>
+                                <p class="timeline-text">At this university, I study various topics in computer science, including both theoretical and practical aspects. This encompasses programming fundamentals with Python and Java, computer architecture, databases, data structures, and so on.</p>
+                            </li>
+                        
+                    </ol>
+                </section>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Experience</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+                        
+                            <li class="timeline-item">
+                                <h4 class="h4 timeline-item-title">AI Engineer</h4>
+                                <span>EBP Myanmar Branch</span>
+                                <span>April 1, 2023 - May 27, 2024</span>
+                                <p class="timeline-text">I developed and optimized machine learning and deep learning models using Scikit-Learn, XGBoost, and PyTorch. Additionally, I processed and cleaned large-scale datasets for training pipelines and collaborated with Japanese engineers to integrate AI into production web applications.</p>
+                            </li>
+                        
+                            <li class="timeline-item">
+                                <h4 class="h4 timeline-item-title">Python Developer</h4>
+                                <span>GoldSilver Central</span>
+                                <span>May 25, 2024 - Nov. 30, 2025</span>
+                                <p class="timeline-text">I automated marketing workflows through WhatsApp broadcasting, which reduced manual work by 80%. To boost its efficiency, I developed and deployed a chatbot based on Retrieval-Augmented Generation (RAG) technology for WhatsApp using OpenAI APIs and LangGraph, significantly enhancing user engagement and providing 24/7 availability. Additionally, I built and managed Azure webhook services to ensure real-time communication. I collaborated directly with business leadership to integrate AI systems into the trading workflow.</p>
+                            </li>
+                        
+                            <li class="timeline-item">
+                                <h4 class="h4 timeline-item-title">Freelance Python Backend Developer</h4>
+                                <span>Canopus</span>
+                                <span>Aug. 22, 2025 - Present</span>
+                                <p class="timeline-text">In this freelance project, I developed a Python backend to support maritime services and deployed and maintained these services on AWS. I also communicated technical updates to client stakeholders and managed project milestones effectively.</p>
+                            </li>
+                        
+                    </ol>
+                </section>
+
+                <section class="skill">
+                    <h3 class="h3 skills-title">My Skills</h3>
+
+                    <ul class="skills-list content-card">
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">Machine Learning</h5>
+                                    <data value="100">100</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 100%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">Tensorflow</h5>
+                                    <data value="80">80</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 80%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">PyTorch</h5>
+                                    <data value="80">80</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 80%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">LLM</h5>
+                                    <data value="90">90</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 90%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">Computer Vision</h5>
+                                    <data value="65">65</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 65%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">API Development</h5>
+                                    <data value="90">90</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 90%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">Cloud</h5>
+                                    <data value="65">65</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 65%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">Chatbot Development</h5>
+                                    <data value="85">85</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 85%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">HTML</h5>
+                                    <data value="60">60</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 60%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">CSS</h5>
+                                    <data value="60">60</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 60%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">JavaScript</h5>
+                                    <data value="60">60</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 60%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">SQL</h5>
+                                    <data value="90">90</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 90%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">Java</h5>
+                                    <data value="75">75</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 75%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">Python</h5>
+                                    <data value="100">100</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 100%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">Django</h5>
+                                    <data value="70">70</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 70%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">FastAPI</h5>
+                                    <data value="100">100</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 100%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                            <li class="skills-item">
+                                <div class="title-wrapper">
+                                    <h5 class="h5">Docker</h5>
+                                    <data value="60">60</data>
+                                </div>
+
+                                <div class="skills-progress-bg">
+                                    <div class="skills-progress-fill" style="--skill-width: 60%; width: var(--skill-width);"></div>
+                                </div>
+                            </li>
+                        
+                    </ul>
+                </section>
+            </article>
+
+            <article class="projects " data-page="projects">
+                <header>
+                    <h2 class="h2 article-title">Portfolio</h2>
+                </header>
+
+                <section class="projects">
+                    <ul class="filter-list">
+                        
+                            
+                                <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+                            
+                        
+                            
+                                <li class="filter-item"><button data-filter-btn>AI</button></li>
+                            
+                        
+                            
+                                <li class="filter-item"><button data-filter-btn>Web Application</button></li>
+                            
+                        
+                            
+                                <li class="filter-item"><button data-filter-btn>Backend APIs</button></li>
+                            
+                        
+                            
+                                <li class="filter-item"><button data-filter-btn>Chatbot</button></li>
+                            
+                        
+                    </ul>
+
+                    <div class="filter-select-box">
+                        <button class="filter-select " data-select>
+                            <div class="select-value" data-select-value>Select Category</div>
+
+                            <div class="select-icon">
+                                <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                        </button>
+
+                        <ul class="select-list">
+                            
+                                <li class="select-item"><button data-select-item>All</button></li>
+                            
+                                <li class="select-item"><button data-select-item>AI</button></li>
+                            
+                                <li class="select-item"><button data-select-item>Web Application</button></li>
+                            
+                                <li class="select-item"><button data-select-item>Backend APIs</button></li>
+                            
+                                <li class="select-item"><button data-select-item>Chatbot</button></li>
+                            
+                        </ul>
+                    </div>
+
+                    <ul class="project-list">
+                        
+                            <li class="project-item active" data-filter-item data-category="ai">
+                                <a href="https://github.com/MinKhantYCC/talkease">
+                                    <figure class="project-img">
+                                        <div class="project-item-icon-box">
+                                            <ion-icon name="eye-outline"></ion-icon>
+                                        </div>
+
+                                        <img src="https://i.postimg.cc/G2B2SrdB/project-1.jpg" loading="lazy">
+                                    </figure>
+
+                                    <h3 class="project-title">TalkEase</h3>
+                                    <p class="project-category">AI</p>
+                                    <p class="project-summary">A simple application where a user and AI can talk to each other. The purpose is to improve the user&#x27;s speaking skills.</p>
+                                </a>
+                            </li>
+                        
+                            <li class="project-item active" data-filter-item data-category="ai">
+                                <a href="https://github.com/MinKhantYCC/openai_response_api_testing">
+                                    <figure class="project-img">
+                                        <div class="project-item-icon-box">
+                                            <ion-icon name="eye-outline"></ion-icon>
+                                        </div>
+
+                                        <img src="https://i.postimg.cc/MG0bKhLy/project-2.png" loading="lazy">
+                                    </figure>
+
+                                    <h3 class="project-title">OpenAI API Response</h3>
+                                    <p class="project-category">AI</p>
+                                    <p class="project-summary">OpenAI recently released new API endpoints to develop agents effectively and easily. In this project, we tested their powerful functionalities, such as agent creation, streaming, tool-calling, and so on.</p>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <script src="{% static 'staticportfolio/main.js' %}"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
