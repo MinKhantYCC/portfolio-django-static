@@ -1,5 +1,5 @@
 let noButtonDodgeCount = 0;
-const maxDodges = 5;
+const maxDodges = 100;
 
 function nextQuestion(accepted, questionNumber) {
     if (accepted) {
