@@ -119,7 +119,11 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASE_URL = os.environ.get("DATABASE_URL")
+DATABASE_URL = (
+    os.environ.get("DATABASE_URL")
+    or os.environ.get("POSTGRES_URL")
+    or os.environ.get("POSTGRES_URL_NON_POOLING")
+)
 
 if DATABASE_URL:
     import dj_database_url
@@ -132,10 +136,11 @@ if DATABASE_URL:
         )
     }
 else:
+    sqlite_name = "/tmp/db.sqlite3" if os.environ.get("VERCEL") else BASE_DIR / 'db.sqlite3'
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'NAME': sqlite_name,
         }
     }
 

@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from django.contrib import messages
+from django.db import DatabaseError, OperationalError
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.utils.formats import date_format
@@ -43,14 +44,20 @@ def _format_period(start_date, end_date, is_current):
 
 
 def _fallback_when_empty(queryset, fallback_value, serializer):
-    records = list(queryset)
+    try:
+        records = list(queryset)
+    except (DatabaseError, OperationalError):
+        return fallback_value
     if records:
         return [serializer(record) for record in records]
     return fallback_value
 
 
 def _profile_context(fallback):
-    profile = Profile.objects.filter(is_active=True).first()
+    try:
+        profile = Profile.objects.filter(is_active=True).first()
+    except (DatabaseError, OperationalError):
+        return fallback
     if not profile:
         return fallback
 
@@ -175,9 +182,16 @@ def index(request):
     if request.method == "POST":
         contact_form = ContactMessageForm(request.POST)
         if contact_form.is_valid():
-            contact_form.save()
-            messages.success(request, "Thanks. Your message has been saved.")
-            return redirect(f"{reverse('home')}#contact")
+            try:
+                contact_form.save()
+            except (DatabaseError, OperationalError):
+                messages.error(
+                    request,
+                    "The contact database is temporarily unavailable. Please email me directly.",
+                )
+            else:
+                messages.success(request, "Thanks. Your message has been saved.")
+                return redirect(f"{reverse('home')}#contact")
         messages.error(request, "Please correct the contact form and try again.")
     else:
         contact_form = ContactMessageForm()

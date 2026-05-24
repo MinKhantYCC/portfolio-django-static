@@ -3,9 +3,11 @@ from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
+from django.db import OperationalError
 from django.test import TestCase
 from django.urls import Resolver404, resolve, reverse
 
+from . import views
 from .models import ContactMessage
 
 
@@ -38,6 +40,13 @@ class PortfolioViewTests(TestCase):
     def test_letter_to_thon_url_is_removed(self):
         with self.assertRaises(Resolver404):
             resolve("/letter-to-thon")
+
+    def test_index_uses_json_fallback_when_database_is_unavailable(self):
+        with patch.object(views.Profile.objects, "filter", side_effect=OperationalError):
+            response = self.client.get(reverse("home"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Min Khant")
 
 
 class EnsureAdminCommandTests(TestCase):
