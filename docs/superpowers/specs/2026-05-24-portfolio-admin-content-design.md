@@ -15,6 +15,7 @@ The current app also exposes a `letter-to-thon` route that renders the old Valen
 - Keep database tables empty by default. If a section has no database records, render fallback values from `info.json`.
 - Preserve the visual structure and behavior of `original.html`, `original.css`, and `original.js`.
 - Save contact form submissions in the database.
+- Provide a setup path to create a Django superadmin from environment variables.
 - Add environment-variable examples in `.env.sample`.
 - Use `.venv` and Pipenv for package management.
 
@@ -80,6 +81,12 @@ Each content model will be registered with Django admin using focused `ModelAdmi
 
 The `Profile` model will be treated as singleton by convention in admin and by querying the first active profile in the view.
 
+## Superadmin Setup
+
+The implementation will add a Django management command, tentatively named `ensure_admin`, that reads `ADMIN_USERNAME` and `ADMIN_PASSWORD` from the environment and creates a superuser account if it does not already exist.
+
+The command will be explicit setup/deployment tooling, not request-time behavior and not automatic application startup behavior. If either required variable is missing, the command will fail with a clear configuration error. The password will not be logged. If the username already exists, the command will leave the account in place and ensure it has staff and superuser permissions.
+
 ## Settings And Environment
 
 Settings will remain in the current single `portfolio/settings.py` file to avoid a broad project restructure. Environment variables will drive deployment configuration:
@@ -89,6 +96,8 @@ Settings will remain in the current single `portfolio/settings.py` file to avoid
 - `ALLOWED_HOSTS`
 - `CSRF_TRUSTED_ORIGINS`
 - `DATABASE_URL`
+- `ADMIN_USERNAME`
+- `ADMIN_PASSWORD`
 - `EMAIL_BACKEND`
 - `DEFAULT_FROM_EMAIL`
 
@@ -115,6 +124,7 @@ Implementation verification will include:
 - `python manage.py test`.
 - A local render smoke test for the index page with an empty database, confirming fallback JSON renders.
 - A contact form POST test confirming a `ContactMessage` is saved.
+- A management command test confirming `ADMIN_USERNAME` and `ADMIN_PASSWORD` create or update a superadmin account without logging the password.
 - A URL test confirming `letter-to-thon` no longer resolves.
 
 ## Open Decisions
