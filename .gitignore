@@ -50,6 +50,9 @@ venv.bak/
 .env.local
 .env.*.local
 
+# Local brainstorming companion artifacts
+.superpowers/
+
 # OS
 .DS_Store
 Thumbs.db
