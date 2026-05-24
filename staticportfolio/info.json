@@ -1,0 +1,138 @@
+{
+  "profile": {
+    "name": "Min Khant",
+    "title": "AI Engineer",
+    "avatar_url": "https://i.postimg.cc/1zJzTWbg/myavatarhead.png",
+    "favicon_url": "https://i.postimg.cc/9fqYVvxh/logo.png",
+    "email": "linyaungzin99@gmail.com",
+    "phone": "+66944496172",
+    "birthday": "June 25, 1999",
+    "birthday_iso": "1999-06-25",
+    "location": "Bangkok, Thailand",
+    "about": "I am an AI Engineer specializing in the design and deployment of production-ready, LLM-powered systems. My work focuses on building Retrieval-Augmented Generation (RAG) chatbots, scalable backend services, and automated workflows using Python, FastAPI, PostgreSQL, Docker, and modern cloud platforms such as AWS and Azure. I take a full-stack approach to AI engineering, integrating large language models with robust backend architectures to ensure reliability, performance, and maintainability in real-world environments. I have delivered AI solutions that enhance customer interaction, enable real-time access to information, and significantly reduce manual operational workload. From API design and cloud-native deployment to data flow optimization and system scalability, I focus on building systems that operate consistently in production. Beyond implementation, I work closely with stakeholders to translate business requirements into practical, measurable solutions. My technical interests include large language models, retrieval systems, agentic AI, and scalable system design, with a continuous focus on applying emerging techniques to real-world problems.",
+    "github_url": "https://github.com/MinKhantYCC",
+    "linkedin_url": "https://www.linkedin.com/in/min-khant-386199201/",
+    "medium_url": "https://medium.com/@linyaungzin99",
+    "resume_url": "",
+    "map_embed_url": "https://www.google.com/maps?q=Bangkok%2C%20Thailand&output=embed"
+  },
+  "services": [
+    {
+      "title": "Backend development",
+      "description": "Develop robust backend architectures to ensure reliability, performance, and maintainability in real-world environments.",
+      "icon_url": "https://i.postimg.cc/QM4qnwwP/icon-dev.png"
+    },
+    {
+      "title": "AI Engineer",
+      "description": "Design and develop production-ready, AI-powered systems using machine learning models or LLMs.",
+      "icon_url": "https://i.postimg.cc/9Q3Xyfft/ai.png"
+    },
+    {
+      "title": "Chatbot Development",
+      "description": "Build LLM-powered chatbot such as RAG to enhance customer interaction, enable real-time information access, and significantly reduce manual operational workload.",
+      "icon_url": "https://i.postimg.cc/vmJvsf8P/chatbot.png"
+    }
+  ],
+  "clients": [
+    {
+      "name": "Canopus",
+      "logo_url": "https://the-canopus.com/wp-content/uploads/2022/09/campus-logo-1.png",
+      "website_url": "https://the-canopus.com/"
+    }
+  ],
+  "education": [
+    {
+      "title": "University of Technology (Yatanarpon Cyber City) (Bachelor of Engineering (Electronics))",
+      "period": "Dec. 1, 2015 - Present",
+      "description": "There, I learnt a wide range of topics that are essential to understanding both the theory and practical aspects of electronics. This involves programming fundamentals, computer architecture, electronic power systems, microcontrollers, embedded engineering, network communication, problem-solving, collaboration, and communication soft skills."
+    },
+    {
+      "title": "University of The People (Bachelor's in Computer Science)",
+      "period": "Sept. 1, 2024 - Present",
+      "description": "At this university, I study various topics in computer science, including both theoretical and practical aspects. This encompasses programming fundamentals with Python and Java, computer architecture, databases, data structures, and so on."
+    }
+  ],
+  "experience": [
+    {
+      "role": "AI Engineer",
+      "company": "EBP Myanmar Branch",
+      "period": "April 1, 2023 - May 27, 2024",
+      "description": "I developed and optimized machine learning and deep learning models using Scikit-Learn, XGBoost, and PyTorch. Additionally, I processed and cleaned large-scale datasets for training pipelines and collaborated with Japanese engineers to integrate AI into production web applications."
+    },
+    {
+      "role": "Python Developer",
+      "company": "GoldSilver Central",
+      "period": "May 25, 2024 - Nov. 30, 2025",
+      "description": "I automated marketing workflows through WhatsApp broadcasting, which reduced manual work by 80%. To boost its efficiency, I developed and deployed a chatbot based on Retrieval-Augmented Generation (RAG) technology for WhatsApp using OpenAI APIs and LangGraph, significantly enhancing user engagement and providing 24/7 availability. Additionally, I built and managed Azure webhook services to ensure real-time communication. I collaborated directly with business leadership to integrate AI systems into the trading workflow."
+    },
+    {
+      "role": "Freelance Python Backend Developer",
+      "company": "Canopus",
+      "period": "Aug. 22, 2025 - Present",
+      "description": "In this freelance project, I developed a Python backend to support maritime services and deployed and maintained these services on AWS. I also communicated technical updates to client stakeholders and managed project milestones effectively."
+    }
+  ],
+  "skills": [
+    {"name": "Machine Learning", "proficiency": 100},
+    {"name": "Tensorflow", "proficiency": 80},
+    {"name": "PyTorch", "proficiency": 80},
+    {"name": "LLM", "proficiency": 90},
+    {"name": "Computer Vision", "proficiency": 65},
+    {"name": "API Development", "proficiency": 90},
+    {"name": "Cloud", "proficiency": 65},
+    {"name": "Chatbot Development", "proficiency": 85},
+    {"name": "HTML", "proficiency": 60},
+    {"name": "CSS", "proficiency": 60},
+    {"name": "JavaScript", "proficiency": 60},
+    {"name": "SQL", "proficiency": 90},
+    {"name": "Java", "proficiency": 75},
+    {"name": "Python", "proficiency": 100},
+    {"name": "Django", "proficiency": 70},
+    {"name": "FastAPI", "proficiency": 100},
+    {"name": "Docker", "proficiency": 60}
+  ],
+  "project_categories": [
+    {"name": "AI", "slug": "ai"},
+    {"name": "Web Application", "slug": "web application"},
+    {"name": "Backend APIs", "slug": "backend apis"},
+    {"name": "Chatbot", "slug": "chatbot"}
+  ],
+  "projects": [
+    {
+      "title": "TalkEase",
+      "category": "AI",
+      "category_key": "ai",
+      "image_url": "https://i.postimg.cc/G2B2SrdB/project-1.jpg",
+      "project_url": "https://github.com/MinKhantYCC/talkease",
+      "summary": "A simple application where a user and AI can talk to each other. The purpose is to improve the user's speaking skills."
+    },
+    {
+      "title": "OpenAI API Response",
+      "category": "AI",
+      "category_key": "ai",
+      "image_url": "https://i.postimg.cc/MG0bKhLy/project-2.png",
+      "project_url": "https://github.com/MinKhantYCC/openai_response_api_testing",
+      "summary": "OpenAI recently released new API endpoints to develop agents effectively and easily. In this project, we tested their powerful functionalities, such as agent creation, streaming, tool-calling, and so on."
+    }
+  ],
+  "blogs": [
+    {
+      "title": "How to build your AI chatbot with minimum hardware requirement",
+      "category": "AI",
+      "published_display": "Feb 8",
+      "published_iso": "",
+      "image_url": "https://i.postimg.cc/DysCZrWs/blog-1.jpg",
+      "external_url": "https://medium.com/@linyaungzin99",
+      "excerpt": "An introduction to building an AI chatbot while keeping hardware requirements practical."
+    },
+    {
+      "title": "Hosting FastAPI Server on AWS EC2",
+      "category": "Backend",
+      "published_display": "Aug 15, 2024",
+      "published_iso": "2024-08-15",
+      "image_url": "https://i.postimg.cc/QC7qFDMs/blog-2.jpg",
+      "external_url": "https://medium.com/@linyaungzin99",
+      "excerpt": "A tutorial demonstrating how to host a FastAPI server on AWS EC2."
+    }
+  ]
+}

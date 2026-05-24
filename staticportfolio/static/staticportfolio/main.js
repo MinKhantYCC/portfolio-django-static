@@ -1,41 +1,80 @@
 'use strict';
 
-//Opening or closing side bar
+const elementToggleFunc = function (elem) {
+    if (elem) {
+        elem.classList.toggle('active');
+    }
+}
 
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+const sidebar = document.querySelector('[data-sidebar]');
+const sidebarBtn = document.querySelector('[data-sidebar-btn]');
 
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+if (sidebarBtn) {
+    sidebarBtn.addEventListener('click', function() {
+        elementToggleFunc(sidebar);
+    });
+}
 
-sidebarBtn.addEventListener("click", function() {elementToggleFunc(sidebar); })
+const testimonialsItem = document.querySelectorAll('[data-testimonials-item]');
+const modalContainer = document.querySelector('[data-modal-container]');
+const modalCloseBtn = document.querySelector('[data-modal-close-btn]');
+const overlay = document.querySelector('[data-overlay]');
 
-//Activating Filter Select and filtering options
+const modalImg = document.querySelector('[data-modal-img]');
+const modalTitle = document.querySelector('[data-modal-title]');
+const modalText = document.querySelector('[data-modal-text]');
+
+const testimonialsModalFunc = function () {
+    elementToggleFunc(modalContainer);
+    elementToggleFunc(overlay);
+}
+
+for (let i = 0; i < testimonialsItem.length; i++) {
+    testimonialsItem[i].addEventListener('click', function () {
+        const avatar = this.querySelector('[data-testimonials-avatar]');
+        const title = this.querySelector('[data-testimonials-title]');
+        const text = this.querySelector('[data-testimonials-text]');
+
+        if (avatar && modalImg) {
+            modalImg.src = avatar.src;
+            modalImg.alt = avatar.alt;
+        }
+        if (title && modalTitle) {
+            modalTitle.innerHTML = title.innerHTML;
+        }
+        if (text && modalText) {
+            modalText.innerHTML = text.innerHTML;
+        }
+
+        testimonialsModalFunc();
+    });
+}
+
+if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', testimonialsModalFunc);
+}
+
+if (overlay) {
+    overlay.addEventListener('click', testimonialsModalFunc);
+}
 
 const select = document.querySelector('[data-select]');
 const selectItems = document.querySelectorAll('[data-select-item]');
 const selectValue = document.querySelector('[data-select-value]');
 const filterBtn = document.querySelectorAll('[data-filter-btn]');
+const filterItems = document.querySelectorAll('[data-filter-item]');
 
-select.addEventListener('click', function () {elementToggleFunc(this); });
-
-for(let i = 0; i < selectItems.length; i++) {
-    selectItems[i].addEventListener('click', function() {
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
-        elementToggleFunc(select);
-        filterFunc(selectedValue);
-
+if (select) {
+    select.addEventListener('click', function () {
+        elementToggleFunc(this);
     });
 }
 
-const filterItems = document.querySelectorAll('[data-filter-item]');
-
 const filterFunc = function (selectedValue) {
-    console.log(selectedValue);
-    for(let i = 0; i < filterItems.length; i++) {
-        if(selectedValue == "all") {
+    for (let i = 0; i < filterItems.length; i++) {
+        if (selectedValue === 'all') {
             filterItems[i].classList.add('active');
-        } else if (selectedValue == filterItems[i].dataset.category) {
+        } else if (selectedValue === filterItems[i].dataset.category) {
             filterItems[i].classList.add('active');
         } else {
             filterItems[i].classList.remove('active');
@@ -43,40 +82,83 @@ const filterFunc = function (selectedValue) {
     }
 }
 
-//Enabling filter button for larger screens 
+for (let i = 0; i < selectItems.length; i++) {
+    selectItems[i].addEventListener('click', function() {
+        const selectedValue = this.innerText.toLowerCase();
+        if (selectValue) {
+            selectValue.innerText = this.innerText;
+        }
+        elementToggleFunc(select);
+        filterFunc(selectedValue);
+    });
+}
 
 let lastClickedBtn = filterBtn[0];
 
 for (let i = 0; i < filterBtn.length; i++) {
-    
     filterBtn[i].addEventListener('click', function() {
-
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
+        const selectedValue = this.innerText.toLowerCase();
+        if (selectValue) {
+            selectValue.innerText = this.innerText;
+        }
         filterFunc(selectedValue);
 
-        lastClickedBtn.classList.remove('active');
+        if (lastClickedBtn) {
+            lastClickedBtn.classList.remove('active');
+        }
         this.classList.add('active');
         lastClickedBtn = this;
-
-    })
+    });
 }
+
+const form = document.querySelector('[data-form]');
+const formInputs = document.querySelectorAll('[data-form-input]');
+const formBtn = document.querySelector('[data-form-btn]');
+
+const updateFormButton = function () {
+    if (!form || !formBtn) {
+        return;
+    }
+    if (form.checkValidity()) {
+        formBtn.removeAttribute('disabled');
+    } else {
+        formBtn.setAttribute('disabled', '');
+    }
+}
+
+for (let i = 0; i < formInputs.length; i++) {
+    formInputs[i].addEventListener('input', updateFormButton);
+}
+
+updateFormButton();
 
 const navigationLinks = document.querySelectorAll('[data-nav-link]');
 const pages = document.querySelectorAll('[data-page]');
 
-for(let i = 0; i < navigationLinks.length; i++) {
-    navigationLinks[i].addEventListener('click', function() {
-        
-        for(let i = 0; i < pages.length; i++) {
-            if(this.innerHTML.toLowerCase() == pages[i].dataset.page) {
-                pages[i].classList.add('active');
+const activatePage = function (pageName) {
+    for (let i = 0; i < pages.length; i++) {
+        if (pageName === pages[i].dataset.page) {
+            pages[i].classList.add('active');
+            if (navigationLinks[i]) {
                 navigationLinks[i].classList.add('active');
-                window.scrollTo(0, 0);
-            } else {
-                pages[i].classList.remove('active');
-                navigationLinks[i]. classList.remove('active');
+            }
+        } else {
+            pages[i].classList.remove('active');
+            if (navigationLinks[i]) {
+                navigationLinks[i].classList.remove('active');
             }
         }
+    }
+}
+
+for (let i = 0; i < navigationLinks.length; i++) {
+    navigationLinks[i].addEventListener('click', function() {
+        activatePage(this.innerHTML.toLowerCase());
+        window.scrollTo(0, 0);
     });
+}
+
+if (window.location.hash) {
+    const pageName = window.location.hash.replace('#', '').toLowerCase();
+    activatePage(pageName);
 }

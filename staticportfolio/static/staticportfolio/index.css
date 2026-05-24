@@ -991,6 +991,19 @@ article { display: none; }
 
 .form-title { margin-bottom: 20px; }
 
+.form-messages, .form-errors {
+    color: var(--light-gray);
+    font-size: var(--fs6);
+    font-weight: var(--fw300);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.form-messages .success { color: var(--orange-yellow-crayola); }
+.form-messages .error, .form-errors { color: var(--bittersweet-shimmer); }
+
+.form-errors ul { margin-left: 15px; }
+
 .input-wrapper {
     display: grid;
     grid-template-columns: 1fr;
