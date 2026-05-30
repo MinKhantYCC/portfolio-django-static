@@ -44,6 +44,8 @@ def env_list(name, default=None):
 
 
 load_env_file(BASE_DIR / ".env")
+load_env_file(BASE_DIR / ".env.local")
+load_env_file(BASE_DIR / ".env.production.local")
 
 
 # Quick-start development settings - unsuitable for production

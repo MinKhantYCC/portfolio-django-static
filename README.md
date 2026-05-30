@@ -108,12 +108,26 @@ For production deployment:
 1. Set environment variables:
    - `DJANGO_SECRET_KEY`: Your secret key
    - `DEBUG`: Set to `False` for production
+   - `DATABASE_URL` or Vercel Postgres `POSTGRES_URL`: PostgreSQL connection URL
+   - `ADMIN_USERNAME`: Django admin username
+   - `ADMIN_PASSWORD`: Django admin password
 
-2. Run migrations and collect static files:
+2. Run migrations, create/update the admin user, and collect static files:
    ```bash
-   python manage.py migrate
+   python manage.py setup_production
    python manage.py collectstatic --noinput
    ```
+
+On Vercel, run `python manage.py setup_production` from the project with the same production environment variables before using `/admin/`. The admin login depends on the production database tables created by migrations.
+
+If you use Vercel CLI, pull production environment variables first and then run the setup command locally against the production database:
+
+```bash
+vercel env pull .env.production.local
+pipenv run python manage.py setup_production
+```
+
+The `psycopg.errors.UndefinedTable: relation "auth_user" does not exist` error means this setup command has not been run against the database used by the deployed site.
 
 ## Credits and Attribution
 
