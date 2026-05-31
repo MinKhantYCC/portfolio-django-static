@@ -10,6 +10,7 @@ from .models import (
     ProjectCategory,
     Service,
     Skill,
+    Testimonial,
     WorkExperience,
 )
 
@@ -35,6 +36,14 @@ class ClientAdmin(admin.ModelAdmin):
     list_editable = ("display_order", "is_active")
     list_filter = ("is_active",)
     search_fields = ("name", "website_url")
+
+
+@admin.register(Testimonial)
+class TestimonialAdmin(admin.ModelAdmin):
+    list_display = ("name", "display_order", "is_active")
+    list_editable = ("display_order", "is_active")
+    list_filter = ("is_active",)
+    search_fields = ("name", "recommendation_message")
 
 
 @admin.register(Education)

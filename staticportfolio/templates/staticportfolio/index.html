@@ -137,22 +137,48 @@
                     </section>
                 {% endif %}
 
-                <div class="modal-container" data-modal-container>
-                    <div class="overlay" data-overlay></div>
-                    <section class="testimonials-modal">
-                        <button class="modal-close-btn" data-modal-close-btn><ion-icon name="close-outline"></ion-icon></button>
-                        <div class="modal-img-wrapper">
-                            <figure class="modal-avatar-box">
-                                <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="" width="80" data-modal-img>
-                            </figure>
-                            <img src="https://i.postimg.cc/mZ00RwX7/icon-quote.png" alt="quote icon">
-                        </div>
-                        <div class="modal-content">
-                            <h4 class="h3 modal-title" data-modal-title></h4>
-                            <div class="modal-text" data-modal-text></div>
-                        </div>
+                {% if testimonials %}
+                    <section class="testimonials">
+                        <h3 class="h3 testimonials-title">Testimonials</h3>
+
+                        <ul class="testimonials-list has-scrollbar">
+                            {% for testimonial in testimonials %}
+                                <li class="testimonials-item">
+                                    <div class="content-card" data-testimonials-item>
+                                        <figure class="testimonials-avatar-box">
+                                            <img src="{{ testimonial.picture_url }}" alt="{{ testimonial.name }}" data-testimonials-avatar width="60">
+                                        </figure>
+
+                                        <h4 class="h4 testimonials-item-title" data-testimonials-title>{{ testimonial.name }}</h4>
+
+                                        <div class="testimonials-text" data-testimonials-text>
+                                            <p>{{ testimonial.recommendation_message }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </section>
-                </div>
+
+                    <div class="modal-container" data-modal-container>
+                        <div class="overlay" data-overlay></div>
+                        <section class="testimonials-modal">
+                            <button class="modal-close-btn" data-modal-close-btn><ion-icon name="close-outline"></ion-icon></button>
+                            <div class="modal-img-wrapper">
+                                <figure class="modal-avatar-box">
+                                    <img src="{{ testimonials.0.picture_url }}" alt="{{ testimonials.0.name }}" width="80" data-modal-img>
+                                </figure>
+                                <img src="https://i.postimg.cc/mZ00RwX7/icon-quote.png" alt="quote icon">
+                            </div>
+                            <div class="modal-content">
+                                <h4 class="h3 modal-title" data-modal-title>{{ testimonials.0.name }}</h4>
+                                <div class="modal-text" data-modal-text>
+                                    <p>{{ testimonials.0.recommendation_message }}</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                {% endif %}
 
                 {% if clients %}
                     <section class="clients">

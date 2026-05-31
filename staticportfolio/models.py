@@ -57,6 +57,15 @@ class Client(OrderedActiveModel):
         return self.name
 
 
+class Testimonial(OrderedActiveModel):
+    name = models.CharField(max_length=120)
+    picture_url = models.URLField("picture")
+    recommendation_message = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
 class Education(OrderedActiveModel):
     institution = models.CharField(max_length=180)
     degree = models.CharField(max_length=180, blank=True)

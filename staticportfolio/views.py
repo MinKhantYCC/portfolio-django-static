@@ -17,6 +17,7 @@ from .models import (
     ProjectCategory,
     Service,
     Skill,
+    Testimonial,
     WorkExperience,
 )
 
@@ -108,6 +109,15 @@ def _build_portfolio_context(contact_form):
                 "name": client.name,
                 "logo_url": client.logo_url,
                 "website_url": client.website_url,
+            },
+        ),
+        "testimonials": _fallback_when_empty(
+            Testimonial.objects.filter(is_active=True),
+            [],
+            lambda testimonial: {
+                "name": testimonial.name,
+                "picture_url": testimonial.picture_url,
+                "recommendation_message": testimonial.recommendation_message,
             },
         ),
         "education": _fallback_when_empty(

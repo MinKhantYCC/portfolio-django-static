@@ -127,6 +127,8 @@ vercel env pull .env.production.local
 pipenv run python manage.py setup_production
 ```
 
+The setup command prints the database engine, host, and name before it runs. It should show a PostgreSQL backend. If it says SQLite, it is not connected to the Vercel production database and will stop before creating the admin user in the wrong database.
+
 The `psycopg.errors.UndefinedTable: relation "auth_user" does not exist` error means this setup command has not been run against the database used by the deployed site.
 
 ## Credits and Attribution

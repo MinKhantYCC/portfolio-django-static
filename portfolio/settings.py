@@ -17,7 +17,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-def load_env_file(path):
+def load_env_file(path, override=False):
     if not path.exists():
         return
 
@@ -26,7 +26,12 @@ def load_env_file(path):
         if not line or line.startswith("#") or "=" not in line:
             continue
         key, value = line.split("=", 1)
-        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if override:
+            os.environ[key] = value
+        else:
+            os.environ.setdefault(key, value)
 
 
 def env_bool(name, default=False):
@@ -44,8 +49,8 @@ def env_list(name, default=None):
 
 
 load_env_file(BASE_DIR / ".env")
-load_env_file(BASE_DIR / ".env.local")
-load_env_file(BASE_DIR / ".env.production.local")
+load_env_file(BASE_DIR / ".env.local", override=True)
+load_env_file(BASE_DIR / ".env.production.local", override=True)
 
 
 # Quick-start development settings - unsuitable for production

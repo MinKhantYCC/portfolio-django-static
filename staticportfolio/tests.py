@@ -8,7 +8,7 @@ from django.test import TestCase
 from django.urls import Resolver404, resolve, reverse
 
 from . import views
-from .models import ContactMessage
+from .models import ContactMessage, Testimonial
 
 
 class PortfolioViewTests(TestCase):
@@ -20,6 +20,35 @@ class PortfolioViewTests(TestCase):
         self.assertContains(response, "TalkEase")
         self.assertContains(response, "How to build your AI chatbot")
         self.assertContains(response, "Contact Form")
+        self.assertNotContains(response, "Testimonials")
+
+    def test_index_hides_testimonials_when_database_is_empty(self):
+        response = self.client.get(reverse("home"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertNotContains(response, "data-testimonials-item")
+
+    def test_index_renders_active_testimonials_from_database(self):
+        Testimonial.objects.create(
+            name="Jane Reviewer",
+            picture_url="https://example.com/jane.png",
+            recommendation_message="A clear and reliable engineering partner.",
+        )
+        Testimonial.objects.create(
+            name="Hidden Reviewer",
+            picture_url="https://example.com/hidden.png",
+            recommendation_message="This should not render.",
+            is_active=False,
+        )
+
+        response = self.client.get(reverse("home"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Testimonials")
+        self.assertContains(response, "Jane Reviewer")
+        self.assertContains(response, "https://example.com/jane.png")
+        self.assertContains(response, "A clear and reliable engineering partner.")
+        self.assertNotContains(response, "Hidden Reviewer")
 
     def test_contact_form_saves_message(self):
         response = self.client.post(
